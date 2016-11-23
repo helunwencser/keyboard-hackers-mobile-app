@@ -8,9 +8,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created by helunwen on 11/9/16.
  */
@@ -36,7 +33,7 @@ public class SimpleIME extends InputMethodService implements KeyboardView.OnKeyb
 
     @Override
     public void onKey(int primaryCode, int[] keyCodes) {
-
+        new MessagService("Message").execute();
         InputConnection ic = getCurrentInputConnection();
         if (ic != this.inputConnection) {
             this.inputConnection = ic;
