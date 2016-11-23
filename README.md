@@ -7,4 +7,4 @@ The mobile side for team project Keyboard Hacker of course Mobile Security at Ca
 Acknowledgements:
 ---------------------------------------------------------
 Professor Patrick Tague and the teaching staff of 18-638,
-Service Oriented Computing, at Carnegie Mellon University, Spring 2016.
+Mobile Security, at Carnegie Mellon University, Fall 2016.
