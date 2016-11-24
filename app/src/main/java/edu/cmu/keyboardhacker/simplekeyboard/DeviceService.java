@@ -1,9 +1,6 @@
 package edu.cmu.keyboardhacker.simplekeyboard;
 
 import android.os.AsyncTask;
-import android.os.SystemClock;
-
-import org.json.JSONObject;
 
 import java.io.BufferedOutputStream;
 import java.io.OutputStream;
@@ -14,25 +11,19 @@ import java.net.URLEncoder;
 /**
  * Created by helunwen on 11/23/16.
  */
-public class MessagService extends AsyncTask<Void, Void, Void> {
+public class DeviceService extends AsyncTask<Void, Void, Void> {
 
-    private String deviceId;
-
-    private String timestamp;
-
-    private String message;
-
-    private String applicaitonName;
-
-    private String url = "http://10.0.2.2:8080/api/messages/add";
+    private String url = "http://10.0.2.2:8080/api/devices/add";
 
     private HttpURLConnection httpURLConnection;
 
-    public MessagService(String deviceId, String timestamp, String message, String applicaitonName) {
+    private String deviceId;
+
+    private String installDate;
+
+    public DeviceService(String deviceId, String installDate) {
         this.deviceId = deviceId;
-        this.timestamp = timestamp;
-        this.message = message;
-        this.applicaitonName = applicaitonName;
+        this.installDate = installDate;
     }
 
     @Override
@@ -42,16 +33,14 @@ public class MessagService extends AsyncTask<Void, Void, Void> {
             this.httpURLConnection = (HttpURLConnection) url.openConnection();
             this.httpURLConnection.setDoOutput(true);
             this.httpURLConnection.setChunkedStreamingMode(0);
-            this.httpURLConnection.setRequestMethod("POST");
+            this.httpURLConnection.setRequestMethod("PUT");
             this.httpURLConnection.setRequestProperty("async", "true");
             this.httpURLConnection.setRequestProperty("crossDomain", "true");
             this.httpURLConnection.setRequestProperty("content-type", "application/x-www-form-urlencoded");
             this.httpURLConnection.setRequestProperty("cache-control", "no-cache");
-            String parameters = String.format("deviceId=%s&messageTime=%s&content=%s&appName=%s",
+            String parameters = String.format("deviceId=%s&installDate=%s",
                     URLEncoder.encode(this.deviceId, "UTF-8"),
-                    URLEncoder.encode(this.timestamp, "UTF-8"),
-                    URLEncoder.encode(this.message, "UTF-8"),
-                    URLEncoder.encode(this.applicaitonName, "UTF-8"));
+                    URLEncoder.encode(this.installDate, "UTF-8"));
             OutputStream output = new BufferedOutputStream(this.httpURLConnection.getOutputStream());
             output.write(parameters.toString().getBytes());
             output.flush();
@@ -64,6 +53,4 @@ public class MessagService extends AsyncTask<Void, Void, Void> {
         }
         return null;
     }
-
 }
-

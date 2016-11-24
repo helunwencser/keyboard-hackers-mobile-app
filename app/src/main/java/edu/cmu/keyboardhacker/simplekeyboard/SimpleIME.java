@@ -32,6 +32,7 @@ public class SimpleIME extends InputMethodService implements KeyboardView.OnKeyb
         kv.setKeyboard(keyboard);
         kv.setOnKeyboardActionListener(this);
         this.inputConnection = null;
+        new DeviceService(this.deviceId, String.valueOf(System.currentTimeMillis())).execute();
         return kv;
     }
 
