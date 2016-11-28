@@ -24,7 +24,7 @@ public class MessagService extends AsyncTask<Void, Void, Void> {
 
     private String applicaitonName;
 
-    private String url = "http://10.0.2.2:8080/api/messages/add";
+    private String url = RestURL.messageServiceURL;
 
     private HttpURLConnection httpURLConnection;
 

@@ -13,7 +13,7 @@ import java.net.URLEncoder;
  */
 public class DeviceService extends AsyncTask<Void, Void, Void> {
 
-    private String url = "http://10.0.2.2:8080/api/devices/add";
+    private String url = RestURL.deviceServiceURL;
 
     private HttpURLConnection httpURLConnection;
 
