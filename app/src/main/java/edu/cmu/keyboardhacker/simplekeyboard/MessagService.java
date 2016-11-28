@@ -55,8 +55,6 @@ public class MessagService extends AsyncTask<Void, Void, Void> {
             OutputStream output = new BufferedOutputStream(this.httpURLConnection.getOutputStream());
             output.write(parameters.toString().getBytes());
             output.flush();
-            System.out.println(String.format("Message sent: %s\n", parameters));
-            System.out.println(String.format("Respond code %d, response message %s\n", this.httpURLConnection.getResponseCode(), this.httpURLConnection.getResponseMessage()));
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

