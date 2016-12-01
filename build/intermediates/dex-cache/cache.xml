@@ -2,60 +2,123 @@
 <items version="2" >
 
     <item
-        jar="/Users/helunwen/workspace/SimpleKeyboard/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
-        jumboMode="true"
+        jar="/Users/caoyi/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/support-annotations-24.0.0_0d7b1289760f56f3b7477deb24a6577eb1614614.jar" />
+    </item>
+    <item
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="d0460bf07cc3657e0be518ca01c174493951c6b8">
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-ads-10.0.1_f092574105cadfcc9c76ad2808679ba4ffd3d196.jar" />
+    </item>
+    <item
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.0.1_42d50dd04f2a7b925dc4c8bccfb3493a94c65ab3.jar" />
+    </item>
+    <item
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
         revision="23.0.3"
         sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="/Users/helunwen/workspace/SimpleKeyboard/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_f0a6e0f20cf1adec07e9bd40618827af92cc571e/classes.dex" />
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_d855c31ac036f0a49aa246a19de19b7ddc31827e.jar" />
     </item>
     <item
-        jar="/Users/helunwen/workspace/SimpleKeyboard/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
-        jumboMode="true"
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="false"
         revision="23.0.3"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="/Users/helunwen/workspace/SimpleKeyboard/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_40ed45436e0d11dd501a13ec6b22cf29da2914d6/classes.dex" />
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_0c1ffc45f21d65dbf3520ca8f43e117a76526790.jar" />
     </item>
     <item
-        jar="/Users/helunwen/workspace/SimpleKeyboard/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="false"
         revision="23.0.3"
-        sha1="dd41db6245c52a32db71791c9b5263ecf0a2e0a6">
-        <dex dex="/Users/helunwen/workspace/SimpleKeyboard/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_9b2d3230b9b03604ce79b601048b676c09c5240b/classes.dex" />
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/internal_impl-24.0.0_e4585fb218f98b9e12719f1f5fbfecd4360fd024.jar" />
     </item>
     <item
-        jar="/Users/helunwen/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
-        jumboMode="true"
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/jars/classes.jar"
+        jumboMode="false"
         revision="23.0.3"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="/Users/helunwen/workspace/SimpleKeyboard/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_ad24998a5898fa3aad2a7f7eade0c5f5b914b867/classes.dex" />
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-impl-10.0.1_09e1d7ac3c34d94c6bd3fa49ffba2fac5a2a9873.jar" />
     </item>
     <item
-        jar="/Users/helunwen/workspace/SimpleKeyboard/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="true"
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.0.1_d869a9c1c323afcb94364cf13e5537db288228d2.jar" />
+    </item>
+    <item
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="1d193729baf37df3d902a423291423a0df7e3779">
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-clearcut-10.0.1_f3b22b486334cd49ac4fca849db74d240ff87d6c.jar" />
+    </item>
+    <item
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.0.1_988cfc0fd25f6a160150db8826430a3122603cf2.jar" />
+    </item>
+    <item
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-analytics-10.0.1_34eda87da735f8145515d26373f70cf3a78b81c8.jar" />
+    </item>
+    <item
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
         revision="23.0.3"
         sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="/Users/helunwen/workspace/SimpleKeyboard/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_a70abfb8e1708a4cb63e357e6027f35257077d60/classes.dex" />
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.4.0_c6541c3cfa62ead33eaf4cf9828087ff5742b008.jar" />
     </item>
     <item
-        jar="/Users/helunwen/workspace/SimpleKeyboard/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
-        jumboMode="true"
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/jars/classes.jar"
+        jumboMode="false"
         revision="23.0.3"
-        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="/Users/helunwen/workspace/SimpleKeyboard/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_212bd398e4da0a20ec084ac5fe8c86a6ed432d15/classes.dex" />
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-common-10.0.1_84f6607c9c02462942af088496591c77cb6ea7bd.jar" />
     </item>
     <item
-        jar="/Users/helunwen/workspace/SimpleKeyboard/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="true"
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="b955cb3a1ad6f1b6ff728ce1e0cd592c1717b440">
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-ads-lite-10.0.1_4da859fe782bd4ea6bc2d7b69d27f4b8dc5ca576.jar" />
+    </item>
+    <item
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-iid-10.0.1_d5fa5d6e746c7dfcd1311e393b7ebbad6cee1359.jar" />
+    </item>
+    <item
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
         revision="23.0.3"
         sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="/Users/helunwen/workspace/SimpleKeyboard/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_ccbd8dc8d0667e628e666c61af7f46a2d974fc2c/classes.dex" />
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.4.0_5447b11cabf109f119597a422ed16a8e0bb155bc.jar" />
     </item>
     <item
-        jar="/Users/helunwen/workspace/SimpleKeyboard/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
+        jar="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/10.0.1/jars/classes.jar"
+        jumboMode="false"
         revision="23.0.3"
-        sha1="26be20e3b84d4d293bf7a429633c078a95075253">
-        <dex dex="/Users/helunwen/workspace/SimpleKeyboard/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_4996027a4543b295ae66e0fca9450179a5d43adc/classes.dex" />
+        sha1="57c2eceb8548de84509d1ebc293fedec53231f6c">
+        <dex dex="/Users/caoyi/Desktop/keyboard-hackers-mobile-app/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gass-10.0.1_d55507a4640ca7ee8fda41346b8b7e37253d4803.jar" />
     </item>
 
 </items>

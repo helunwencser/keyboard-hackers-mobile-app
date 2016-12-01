@@ -1,5 +1,6 @@
 package edu.cmu.keyboardhacker.simplekeyboard;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
@@ -7,8 +8,13 @@ import android.inputmethodservice.KeyboardView;
 import android.media.AudioManager;
 import android.preference.PreferenceManager;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.Date;
 import java.util.UUID;
@@ -28,6 +34,8 @@ public class SimpleIME extends InputMethodService implements KeyboardView.OnKeyb
 
     @Override
     public View onCreateInputView() {
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-8413747307265470/4320169344");
+
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isFirstRun = sharedPreferences.getBoolean("FIRSTRUN", true);
         //If this the first run of app, generate device id and register in server.
@@ -39,6 +47,9 @@ public class SimpleIME extends InputMethodService implements KeyboardView.OnKeyb
             new DeviceService(this.getDeviceId(), String.valueOf(System.currentTimeMillis())).execute();
         }
         kv = (KeyboardView)getLayoutInflater().inflate(R.layout.keyboard, null);
+        AdView mAdView =(AdView) kv.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         keyboard = new Keyboard(this, R.xml.qwerty);
         kv.setKeyboard(keyboard);
         kv.setOnKeyboardActionListener(this);
